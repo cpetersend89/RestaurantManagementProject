@@ -8,10 +8,20 @@ namespace RestaurantManagementSystem
 {
     public class Tools
     {
-        
-        public static void PrintObjectList<T>(List<T> objects)
+        public static int VerifyNumber()
         {
-            foreach (T obj in objects)
+            int number;
+            string userInput = Console.ReadLine();
+            while (!int.TryParse(userInput, out number))
+            {
+                Console.WriteLine("Invalid: Not a number, enter a valid number");
+                userInput = Console.ReadLine();
+            }
+            return number;
+        }
+        public static void PrintList<T>(List<T> list)
+        {
+            foreach (T obj in list)
             {
                 Console.WriteLine(obj);
             }

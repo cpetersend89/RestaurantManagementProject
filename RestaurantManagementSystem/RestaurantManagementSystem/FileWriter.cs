@@ -38,6 +38,20 @@ namespace RestaurantManagementSystem
                     }
                 }
             }
+        }
+
+        public void OverrideEmployeeFile(List<Employee> employees)
+        {
+            using (FileStream fs = new FileStream(_fileName, FileMode.Create, FileAccess.Write))
+            {
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+                    foreach (Employee employee in employees)
+                    {
+                        sw.WriteLine(employee);
+                    }
+                }
+            }
         } 
     }
 }

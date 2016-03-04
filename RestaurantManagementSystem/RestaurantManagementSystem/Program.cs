@@ -10,7 +10,12 @@ namespace RestaurantManagementSystem
     {
         static void Main(string[] args)
         {
-            
+            UserInput ui = new UserInput();
+            Employee employee = ui.AddEmployee();
+            Console.WriteLine(employee);
+
+            Console.ReadKey();
+
         }
     }
 }
