@@ -33,5 +33,19 @@ namespace RestaurantManagementSystem
             Console.ReadKey();
             Console.Clear();
         }
+
+        public static DateTime SetMonthDayYearHourMinute()
+        {
+            Console.Write("Input Month 1 - 12: ");
+            int month = VerifyNumber();
+            Console.Write("Input day: ");
+            int day = VerifyNumber();
+            Console.Write("Input Year: ");
+            int year = VerifyNumber();
+            Console.Write("Input Hour: ");
+            int hour = VerifyNumber();
+            Console.Write("Input Minute: ");
+            return new DateTime(year, month, day);
+        }
     }
 }

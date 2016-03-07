@@ -30,10 +30,43 @@ namespace RestaurantManagementSystem
             FileWriter.WriteEmployeeFile(employee);
         }
 
-        public void CheckIfHirable()
+        private static int GetQuestionnaireTotal()
         {
             Console.WriteLine("Rate potential employee on a scale of 1 - 10");
+            Console.Write("Customer service skills: ");
+            int customerService = Tools.VerifyNumber();
+            Console.Write("Approachability/Friendliness: ");
+            int friendliness = Tools.VerifyNumber();
+            Console.Write("Technical skills: ");
+            int technical = Tools.VerifyNumber();
+            Console.Write("Product knowledge: ");
+            int product = Tools.VerifyNumber();
+            Console.Write("Experience: ");
+            int experience = Tools.VerifyNumber();
+            Console.Write("Availability: ");
+            int availibility = Tools.VerifyNumber();
+            int totalRating = customerService + friendliness + technical + product + experience + availibility;
+            return totalRating;
+        }
 
+        public static int Average(int total, int numOfQuestions)
+        {
+            return total/numOfQuestions;
+        }
+
+        public static bool CheckIfHireable()
+        {
+            int questionnaireTotal = GetQuestionnaireTotal();
+            int numOfQuestions = 6;
+            int rating = Average(questionnaireTotal, numOfQuestions);
+            if (rating >= 7)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override string ToString()

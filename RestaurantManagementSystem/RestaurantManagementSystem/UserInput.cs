@@ -19,6 +19,13 @@ namespace RestaurantManagementSystem
             return new Employee(employeeId, firstName, lastName, phoneNumber, position);
         }
 
+        public static Customer GetCustomerInfo()
+        {
+            string firstName = GetCustomerFirstName();
+            string lastName = GetCustomerLastName();
+            return new Customer(firstName, lastName);
+        }
+
         public static int GetEmployeeIdNumber()
         {
             Console.Write("Enter employee ID number: ");
@@ -73,6 +80,19 @@ namespace RestaurantManagementSystem
                         break;
                 }
             }
+        }
+        public static string GetCustomerFirstName()
+        {
+            Console.Write("Enter customer's first name: ");
+            string firstName = Console.ReadLine();
+            return firstName;
+        }
+
+        public static string GetCustomerLastName()
+        {
+            Console.Write("Enter customer's last name: ");
+            string lastName = Console.ReadLine();
+            return lastName;
         }
     }
 }

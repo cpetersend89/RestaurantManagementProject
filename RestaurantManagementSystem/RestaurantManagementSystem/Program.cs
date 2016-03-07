@@ -10,8 +10,10 @@ namespace RestaurantManagementSystem
     {
         static void Main(string[] args)
         {
-            MainMenu.DisplayMainMenu();
-            //Query.ViewAllEmployees();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.DisplayMainMenu();
+
+
 
             Console.ReadKey();
 

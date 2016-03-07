@@ -29,7 +29,7 @@ namespace RestaurantManagementSystem
 
         public void AppendListToFile<T>(List<T> list)
         {
-            using (FileStream fs = new FileStream(_fileName, FileMode.Create, FileAccess.Write))
+            using (FileStream fs = new FileStream(_fileName, FileMode.Append, FileAccess.Write))
             {
                 using (StreamWriter sw = new StreamWriter(fs))
                 {
