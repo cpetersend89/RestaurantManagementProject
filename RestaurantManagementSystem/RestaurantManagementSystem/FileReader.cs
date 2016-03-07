@@ -16,6 +16,17 @@ namespace RestaurantManagementSystem
             _fileName = fileName;
         }
 
+        public string ReadStringFile()
+        {
+            using (FileStream fs = new FileStream(_fileName, FileMode.OpenOrCreate, FileAccess.Read))
+            {
+                using (StreamReader sr = new StreamReader(fs))
+                {
+                    return sr.ReadToEnd();
+                }
+            }
+        }
+
         public List<Employee> ReadEmployeeFile()
         {
             using (FileStream fs = new FileStream(_fileName, FileMode.OpenOrCreate, FileAccess.Read))
@@ -36,10 +47,5 @@ namespace RestaurantManagementSystem
                 }
             }
         }
-
-        public void TerminateEmployee(Employee employee)
-        {
-            
-        } 
     }
 }

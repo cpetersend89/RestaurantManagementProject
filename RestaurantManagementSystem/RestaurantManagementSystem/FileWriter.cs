@@ -26,32 +26,42 @@ namespace RestaurantManagementSystem
                 }
             }
         }
-        public void WriteEmployeeFile(List<Employee> employees)
-        {
-            using (FileStream fs = new FileStream(_fileName, FileMode.Append, FileAccess.Write))
-            {
-                using (StreamWriter sw = new StreamWriter(fs))
-                {
-                    foreach (Employee employee in employees)
-                    {
-                        sw.WriteLine(employee);
-                    }
-                }
-            }
-        }
 
-        public void OverrideEmployeeFile(List<Employee> employees)
+        public void AppendListToFile<T>(List<T> list)
         {
             using (FileStream fs = new FileStream(_fileName, FileMode.Create, FileAccess.Write))
             {
                 using (StreamWriter sw = new StreamWriter(fs))
                 {
-                    foreach (Employee employee in employees)
+                    foreach (T obj in list)
                     {
-                        sw.WriteLine(employee);
+                        sw.WriteLine(obj);
                     }
                 }
             }
-        } 
+        }
+        public void OverrideListToFile<T>(List<T> list)
+        {
+            using (FileStream fs = new FileStream(_fileName, FileMode.Create, FileAccess.Write))
+            {
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+                    foreach (T obj in list)
+                    {
+                        sw.WriteLine(obj);
+                    }
+                }
+            }
+        }
+        public void WriteEmployeeFile(Employee employee)
+        {
+            using (FileStream fs = new FileStream(_fileName, FileMode.Append, FileAccess.Write))
+            {
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+                    sw.WriteLine(employee);
+                }
+            }
+        }
     }
 }

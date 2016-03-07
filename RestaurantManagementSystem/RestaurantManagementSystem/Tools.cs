@@ -26,5 +26,12 @@ namespace RestaurantManagementSystem
                 Console.WriteLine(obj);
             }
         }
+
+        public static void ClearConsole()
+        {
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }

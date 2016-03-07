@@ -9,7 +9,7 @@ namespace RestaurantManagementSystem
 {
     public class UserInput
     {
-        public Employee AddEmployee()
+        public static Employee GetEmployeeInfo()
         {
             int employeeId = GetEmployeeIdNumber();
             string firstName = GetEmployeeFirstName();
@@ -21,7 +21,7 @@ namespace RestaurantManagementSystem
 
         public static int GetEmployeeIdNumber()
         {
-            Console.Write("Assign employee an ID number: ");
+            Console.Write("Enter employee ID number: ");
             int idNumber = Tools.VerifyNumber();
             return idNumber;
         }
@@ -29,14 +29,14 @@ namespace RestaurantManagementSystem
         {
             Console.Write("Enter employee first name: ");
             string firstName = Console.ReadLine();
-            return firstName;
+            return firstName.ToUpper();
         }
 
         public static string GetEmployeeLastName()
         {
             Console.Write("Enter employee last name: ");
             string lastName = Console.ReadLine();
-            return lastName;
+            return lastName.ToUpper();
         }
 
         public static string GetEmployeePhoneNumber()
